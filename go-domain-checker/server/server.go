@@ -6,10 +6,6 @@ type Server struct {
 	router *gin.Engine
 }
 
-func (s *Server) index(ctx *gin.Context) {
-
-}
-
 func (server *Server) Start(address string) error {
 	return server.router.Run(address)
 }
