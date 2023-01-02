@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <title>Domain checker</title>
     <link rel="stylesheet" href="public/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tinos:wght@700&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/8a86b3e611f41da6ca263bf6c73dc65b?family=GDSage-Bold" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
-{{template "header"}}
-
-<div id="atf">
-    <main>
-        <svg class="icon icon-big-in">
-            <use xlink:href="#inbox"></use>
-        </svg>
-        <h1>Are You In?</h1>
-    </main>
-</div>
-
-
-{{template "footer"}}
-
+    <div id="page-container">
+        <div id="content-wrap">
+            {{template "header"}}
+            {{template "main-search"}}
+        </div>
+        <div id="footer">
+            {{template "footer" .Year}}
+        </div>
+    </div>
 </body>
 </html>

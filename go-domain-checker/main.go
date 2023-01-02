@@ -6,7 +6,7 @@ import (
 	"github.com/alekseiapa/mini-go-projects/go-domain-checker/server"
 )
 
-const serverAddress = "0.0.0.0:8080"
+const serverAddress = "0.0.0.0:8081"
 
 func main() {
 	server := server.NewServer()

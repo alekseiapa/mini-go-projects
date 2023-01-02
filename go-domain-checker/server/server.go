@@ -1,6 +1,8 @@
 package server
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 type Server struct {
 	router *gin.Engine
@@ -13,8 +15,8 @@ func (server *Server) Start(address string) error {
 func NewServer() *Server {
 	server := &Server{}
 	router := gin.Default()
-
-	router.GET("/", server.index)
+	router.Static("/public", "server/public")
+	router.GET("/", server.HomePage)
 	server.router = router
 	return server
 }
