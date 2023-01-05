@@ -17,6 +17,7 @@ func NewServer() *Server {
 	router := gin.Default()
 	router.Static("/public", "server/public")
 	router.GET("/", server.HomePage)
+	router.POST("/", server.HomePage)
 	server.router = router
 	return server
 }

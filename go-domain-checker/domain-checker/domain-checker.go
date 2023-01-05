@@ -11,18 +11,22 @@ type Domain struct {
 	HasMX       bool
 	HasSPF      bool
 	HasDMARC    bool
+	MXRecord    string
 	SpfRecord   string
 	DmarcRecord string
 }
 
-func checkDomain(domainName string) *Domain {
-	domain := &Domain{}
+func CheckDomain(domainName string) *Domain {
+	domain := &Domain{
+		Name: domainName,
+	}
 
 	mxRecords, err := net.LookupMX(domainName)
 	if err != nil {
 		log.Fatalln("Error: ", err)
 	}
 	if len(mxRecords) > 0 {
+		domain.MXRecord = mxRecords[0].Host
 		domain.HasMX = true
 	}
 

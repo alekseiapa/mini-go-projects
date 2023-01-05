@@ -12,7 +12,12 @@
     <div id="page-container">
         <div id="content-wrap">
             {{template "header"}}
-            {{template "main-search"}}
+            <div class="center">
+                {{template "main-search"}}
+                {{if .DomainInfo}}
+                   {{template "domain-info" .}}
+                {{end}}
+            </div>
         </div>
         <div id="footer">
             {{template "footer" .Year}}

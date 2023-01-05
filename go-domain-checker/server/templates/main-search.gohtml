@@ -1,5 +1,5 @@
 {{define "main-search"}}
-<div class="center">
+
     <div class="main">
         <div>
             <h1 class="page-title">
@@ -7,14 +7,14 @@
             </h1>
         </div>
         <div class="input-search">
-            <form action="." autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="off">
+            <form method="post" autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="off">
                 <div>
                     <input type="hidden" name="checkAvail" value="1">
                     <div class="input-group">
                         <span class="input-group-ltr">
                             <input required="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="searchInput form-control" aria-label="Type the domain name to search" type="text" placeholder="Type the domain name to search" name="domainToCheck">
                         </span>
-                        <button class="btn-search" type="Submit" aria-label="Search for a domain">
+                        <button class="btn-search" type="submit" aria-label="Search for a domain">
                             <span class="input-group-btn">
                                 <span class="searchText">Find It</span>
                             </span>
@@ -24,5 +24,5 @@
             </form>
         </div>
     </div>
-</div>
+
 {{end}}

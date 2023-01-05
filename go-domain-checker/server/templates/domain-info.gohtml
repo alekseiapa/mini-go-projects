@@ -1,0 +1,22 @@
+{{define "domain-info"}}
+
+<div class="domain-info">
+    <h1 class="results-title">
+        Result for {{.DomainInfo.Name}}
+    </h1>
+    <table>
+    <tr>
+        <td>SPF Record</td>
+        <td>{{.DomainInfo.SpfRecord}}</td>
+    </tr>
+    <tr>
+        <td>MX Record</td>
+        <td>{{.DomainInfo.MXRecord}}</td>
+    </tr>
+    <tr>
+        <td>DMARC Record</td>
+        <td>{{.DomainInfo.DmarcRecord}}</td>
+    </tr>
+    </table>
+</div>
+{{end}}

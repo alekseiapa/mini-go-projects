@@ -48,6 +48,30 @@ input[type="text"]:focus {
   border: 3px solid #0086eb;
 }
 
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #d7efef;
+}
+th {
+  background-color: #333;
+  color: #fff;
+}
+
 .btn-search {
   background: none;
   color: rgb(255, 255, 255);
@@ -56,6 +80,24 @@ input[type="text"]:focus {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.domain-info {
+  padding-top: 1px;
+}
+
+.float-left {
+  float: left;
+  width: 50%;
+  background: red;
+  height: 80px;
+}
+
+.float-right {
+  float: right;
+  width: 50%;
+  background: blue;
+  height: 80px;
 }
 
 .input-group-btn {
@@ -73,6 +115,15 @@ input[type="text"]:focus {
   padding: 2rem 0rem 0rem 0rem;
   letter-spacing: -0.01em;
   margin-bottom: 0;
+  position: relative;
+}
+
+.results-title {
+  font-family: "GDSage-Bold", sans-serif;
+  font-size: 38px;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -137,8 +188,8 @@ input[type="text"]:focus {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding-top: 4rem;
-  height: 5rem; /* Footer height */
+  padding-top: 2rem;
+  height: 3rem; /* Footer height */
   background-color: #d7efef;
   text-align: center;
   font-family: "Inter", sans-serif;
