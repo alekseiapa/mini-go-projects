@@ -1,13 +1,14 @@
 package domain_checker
 
 import (
-	"log"
 	"net"
+	"regexp"
 	"strings"
 )
 
 type Domain struct {
 	Name        string
+	IsValid     bool
 	HasMX       bool
 	HasSPF      bool
 	HasDMARC    bool
@@ -16,14 +17,26 @@ type Domain struct {
 	DmarcRecord string
 }
 
+func isValidDomain(domain string) bool {
+	// Define a regular expression that matches domain names
+	domainRegexp := regexp.MustCompile(`^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$`)
+
+	// Check if the domain name matches the regular expression
+	return domainRegexp.MatchString(domain)
+}
+
 func CheckDomain(domainName string) *Domain {
 	domain := &Domain{
 		Name: domainName,
 	}
-
+	if !isValidDomain(domainName) {
+		domain.IsValid = false
+		return domain
+	}
+	domain.IsValid = true
 	mxRecords, err := net.LookupMX(domainName)
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return domain
 	}
 	if len(mxRecords) > 0 {
 		domain.MXRecord = mxRecords[0].Host
@@ -32,7 +45,7 @@ func CheckDomain(domainName string) *Domain {
 
 	txtRecords, err := net.LookupTXT(domainName)
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return domain
 	}
 
 	for _, record := range txtRecords {
@@ -45,7 +58,7 @@ func CheckDomain(domainName string) *Domain {
 
 	dmarcRecords, err := net.LookupTXT("_dmarc." + domainName)
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return domain
 	}
 	for _, record := range dmarcRecords {
 		if strings.HasPrefix(record, "v=DMARC1") {

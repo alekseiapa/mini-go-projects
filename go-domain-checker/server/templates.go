@@ -15,6 +15,7 @@ var tpl *template.Template
 type PageData struct {
 	Year       string
 	DomainInfo *dc.Domain
+	Error      error
 }
 
 const patternsPath = "server/templates/*.gohtml"

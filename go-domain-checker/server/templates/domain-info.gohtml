@@ -1,22 +1,46 @@
 {{define "domain-info"}}
 
 <div class="domain-info">
-    <h1 class="results-title">
-        Result for {{.DomainInfo.Name}}
-    </h1>
-    <table>
-    <tr>
-        <td>SPF Record</td>
-        <td>{{.DomainInfo.SpfRecord}}</td>
-    </tr>
-    <tr>
-        <td>MX Record</td>
-        <td>{{.DomainInfo.MXRecord}}</td>
-    </tr>
-    <tr>
-        <td>DMARC Record</td>
-        <td>{{.DomainInfo.DmarcRecord}}</td>
-    </tr>
-    </table>
+    {{if not .DomainInfo.IsValid}}
+        <h1 class="results-title">
+            Domain <span style="color: red;">{{.DomainInfo.Name}}</span> is not a valid domain
+        </h1>
+    {{else}}
+        <h1 class="results-title">
+            Result for <span style="color: green;">{{.DomainInfo.Name}}</span>
+        </h1>
+        <table>
+        <tr>
+            <td>SPF Record</td>
+            <td>
+                {{if .DomainInfo.SpfRecord}}
+                    {{.DomainInfo.SpfRecord}}
+                {{else}}
+                    Not found
+                {{end}}
+            </td>
+        </tr>
+        <tr>
+            <td>MX Record</td>
+            <td>
+            {{if .DomainInfo.MXRecord}}
+                {{.DomainInfo.MXRecord}}
+            {{else}}
+                Not found
+            {{end}}
+            </td>
+        </tr>
+        <tr>
+            <td>DMARC Record</td>
+            <td>
+            {{if .DomainInfo.DmarcRecord}}
+                {{.DomainInfo.DmarcRecord}}
+            {{else}}
+                Not found
+            {{end}}
+            </td>
+        </tr>
+        </table>
+    {{end}}
 </div>
 {{end}}
