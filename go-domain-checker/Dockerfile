@@ -11,7 +11,7 @@ COPY . .
 RUN go build -o app .
 
 # Expose the default port for the Go app
-EXPOSE 8080
+EXPOSE 8081
 
 # Set the entrypoint to run the Go app
 ENTRYPOINT ["./app"]
