@@ -6,7 +6,7 @@ import (
 )
 
 import (
-	"github.com/Uttkarsh-Raj/Proxie/routes"
+	"github.com/alekseiapa/mini-go-projects/proxy-server/routes"
 )
 
 func main() {
